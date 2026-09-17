@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Markazi Text", "Georgia", serif;
+  --font-body: "Cairo", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-body;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid theme("colors.rose.DEFAULT");
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* A single hand-drawn leaf divider, reused sparingly as the site's one
+   recurring motif instead of generic section dividers. */
+.leaf-divider {
+  height: 28px;
+  background-repeat: repeat-x;
+  background-size: 56px 28px;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cpath d='M4 24 C 14 4, 24 4, 30 14 C 36 24, 46 24, 52 8' stroke='%236B8F52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Long line-length guard for body copy */
+.prose-arinas {
+  max-width: 68ch;
+}
